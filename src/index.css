@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+
+@theme{
+  --default-font-family: "Geist", serif;
+
+  --color-primary: oklch(0.577 0.245 27.325);
+
+  --spacing: 0.25rem;
+
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+}
+
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 4rem;
+}
+
+
+
+
