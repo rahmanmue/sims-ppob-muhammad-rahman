@@ -53,6 +53,13 @@ const Home = () => {
     fetchDataService()
   }, [])
 
+  
+  useEffect(()=> {
+    if(!localStorage.getItem("token")){
+      navigate("/login")
+    }
+  },[])
+
   const handlePayment = (data:Service) => {
     dispatch(setPayment(data))
     navigate('/payment', {state: data})

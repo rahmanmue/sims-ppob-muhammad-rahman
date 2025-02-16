@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Layout from '@/components/Layout'
 import TransactionService from '@/services/TransactionService';
 import { formatDate } from '@/utils/formatDate';
+import { useNavigate } from 'react-router-dom';
 
 
 const getMonths = () => {
@@ -30,6 +31,16 @@ type Transaction = {
 
 
 const Transaction = () => {
+  const navigate = useNavigate();
+      
+    useEffect(()=> {
+      if(!localStorage.getItem("token")){
+          navigate("/login")
+      }
+    },[])
+  
+
+
   const getMonth = useMemo(()=> getMonths(), []);
   const [limit, setLimit] = useState(2)
   const [history, setHistory] = useState<Transaction[]>([])

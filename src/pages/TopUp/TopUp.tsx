@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setTopUpAmount } from '@/store/slices/topUpSlice'
 import { RootState } from "@/store/store";
 import Alert from '@/components/Alert/Alert'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const moneyTopUp = [
@@ -36,6 +38,15 @@ const moneyTopUp = [
 ]
 
 const TopUp = () => {
+    const navigate = useNavigate();
+    
+    useEffect(()=> {
+        if(!localStorage.getItem("token")){
+            navigate("/login")
+        }
+    },[])
+
+
     const dispatch = useDispatch();
     const topUpAmount = useSelector((state : RootState) => state.topUpState.top_up_amount);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

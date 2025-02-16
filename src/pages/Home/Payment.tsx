@@ -1,11 +1,19 @@
 import Layout from '@/components/Layout'
 import Input from '@/components/Input/Input'
 import { Banknote } from 'lucide-react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Modal from '@/components/Modal/Modal'
+import { useEffect } from 'react'
 
 const Payment = () => {
   const location = useLocation();
+  const navigate= useNavigate();
+  
+  useEffect(()=> {
+      if(!localStorage.getItem("token")){
+        navigate("/login")
+      }
+    },[])
   return (
     <>
         <title>Pembelian</title>
@@ -26,3 +34,4 @@ const Payment = () => {
 }
 
 export default Payment
+
